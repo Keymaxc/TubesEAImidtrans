@@ -12,13 +12,14 @@
       <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
       <ul class="list-unstyled">
               <li class="active"><a href="{{ url('admin/dashboard') }}"> <i class="icon-home"></i>Home </a></li>
+              <li class="active"><a href="{{ url('admin/addProduct') }}"> <i class="icon-home"></i>Product </a></li>
     
-              <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows"></i>Product </a>
+              {{-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows active"></i>Product </a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
                   <li><a href="{{ url('admin/addProduct') }}">Add Product</a></li>
                   <li><a href="#">Page</a></li>
                 </ul>
-              </li>
+              </li> --}}
               
       </ul>
     </nav>
