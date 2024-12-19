@@ -49,7 +49,7 @@
                             </div>
                         </a>
                         <div style="padding:15px;">
-                            <form action="{{ url('home/checkout') }}" method="POST">
+                            <form action="{{ route('checkout.process')  }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="qty" class="form-label">Quantity</label>
@@ -65,9 +65,9 @@
                                   </div>
                                   <div class="mb-3">
                                     <label for="address" class="form-label">Address</label>
-                                    <textarea class="form-control" id="address" rows="3"></textarea>
+                                    <textarea  name="address" class="form-control"  id="address" rows="3"></textarea>
                                   </div>
-                                <button type="submit" class="btn btn-primary">Checkout</button>
+                                <button type="submit" class="btn btn-primary" id = "pay-button">Checkout</button>
                             </form>
                         </div>
                     </div>
@@ -76,5 +76,7 @@
         </div>
     </div>
 </section>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

@@ -1,41 +1,29 @@
-@extends('home.index') <!-- Pastikan menggunakan layout yang benar -->
+<script type="text/javascript"
+src="https://app.sandbox.midtrans.com/snap/snap.js"
+data-client-key="midtrans.clientKey"></script>
 
-@section('content')
-    <div class="container">
-        <h2>Checkout</h2>
-
-        <!-- Tampilkan Pesan Notifikasi -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        <div class="row">
-            @foreach ($cartItems as $item)
-                <div class="col-sm-6 col-md-4 col-lg-3">
-                    <div class="box">
-                        <div class="img-box">
-                            <img src="{{ asset('products/' . $item->product->image) }}" alt="">
-                        </div>
-                        <div class="detail-box">
-                            <h6>{{ $item->product->title }}</h6>
-                            <p>Price: {{ $item->product->price }}</p>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-
-        <div class="total">
-            <h3>Total Price: {{ $totalPrice }}</h3>
-        </div>
-
-        <!-- Proses checkout -->
-        <form action="{{ route('checkout') }}" method="POST">
-            @csrf
-            <!-- Misalnya, tambahkan formulir untuk pengisian alamat atau metode pembayaran -->
-            <button type="submit" class="btn btn-success">Confirm and Pay</button>
-        </form>
-    </div>
-@endsection
+<script type="text/javascript">
+    // For example trigger on button clicked, or any time you need
+    var payButton = document.getElementById('pay-button');
+    payButton.addEventListener('click', function () {
+      // Trigger snap popup. @TODO: Replace TRANSACTION_TOKEN_HERE with your transaction token
+      window.snap.pay({{ '$snapToken' }}, {
+        onSuccess: function(result){
+          /* You may add your own implementation here */
+          alert("payment success!"); console.log(result);
+        },
+        onPending: function(result){
+          /* You may add your own implementation here */
+          alert("wating your payment!"); console.log(result);
+        },
+        onError: function(result){
+          /* You may add your own implementation here */
+          alert("payment failed!"); console.log(result);
+        },
+        onClose: function(){
+          /* You may add your own implementation here */
+          alert('you closed the popup without finishing the payment');
+        }
+      })
+    });
+  </script>

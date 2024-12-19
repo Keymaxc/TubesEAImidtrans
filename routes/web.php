@@ -62,10 +62,10 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
 
 Route::middleware('rolemanager:customer')->group(function () {
     // Menampilkan halaman checkout
-    Route::get('checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
+    Route::get('home/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
     
     // Memproses checkout
-    Route::post('checkout', [OrderController::class, 'checkout'])->name('checkout.process');
+    Route::post('home/product', [OrderController::class, 'checkout'])->name('checkout.process');
 });
 
 require __DIR__.'/auth.php';

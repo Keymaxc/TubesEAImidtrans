@@ -5,52 +5,50 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\Product;
+use Midtrans\snap;
+use Midtrans\config;
+
 
 class OrderController extends Controller
 {
+    public function checkoutform (Order $order){
+        return view('home.checkout' ,compact ('order'));
+    }
     public function checkout(Request $request)
     {
-        // Validasi input
-        $request->validate([
-            'product_id' => 'required|integer|exists:products,id',
-            'qty' => 'required|integer|min:1',
-            'name' => 'required|string|max:255',
-            'phone' => 'required|string|max:15',
-            'address' => 'required|string|max:500',
-        ]);
+        $request->request->add(['total_price'=> $request->qty * 12000,'status'=>'Unpaid']);
+
+
 
         // Ambil data produk berdasarkan product_id
-        $product = Product::findOrFail($request->product_id);
-
-        // Hitung total harga
-        $totalHarga = $product->price * $request->qty;
+        // $product = Product::findOrFail($request->product_id);
+        $products = Product::all();
+        // // Hitung total harga
+        // $totalHarga = $product->price * $request->qty;
 
         // Simpan data pesanan ke database
-        $order = Order::create([
-            //'user_id' => auth()->id() ?? null, // Tambahkan user_id jika autentikasi ada
-            'quantity' => $request->qty,
-            'address' => $request->address,
-            'phone' => $request->phone,
-            'total_harga' => $totalHarga,
-            'status' => "unpaid",
-        ]);
+        
+        $order = Order::create($request->all());
 
         // Konfigurasi Midtrans
-        \Midtrans\Config::$serverKey = config('midtrans.server_key');
-        \Midtrans\Config::$isProduction = false;
-        \Midtrans\Config::$isSanitized = true;
-        \Midtrans\Config::$is3ds = true;
+
+        Config::$serverKey = config('midtrans.serverKey');
+        Config::$clientKey = config('midtrans.clientKey');
+        Config::$isProduction = false;
+        Config::$isSanitized = true;
+        Config::$is3ds = true;
 
         // Parameter transaksi Midtrans
         $params = [
             'transaction_details' => [
                 'order_id' => $order->id, // Gunakan ID order
-                'gross_amount' => $totalHarga, // Total harga
+                'gross_amount' => $order->total_price, // Total harga
             ],
             'customer_details' => [
-                'first_name' => $request->name,
-                'email' => $request->email,
-                'phone' => $request->phone,
+                'first_name' => $order->name,
+                'email' => $order->email,
+                'phone' => $order->phone,
+                'address' => $order->address,
             ],
         ];
 
@@ -60,5 +58,7 @@ class OrderController extends Controller
         // Tampilkan halaman pembayaran
         return view('home.checkout', compact('snapToken', 'order'));
     }
+
+    
 }
 
