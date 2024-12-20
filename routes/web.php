@@ -65,7 +65,7 @@ Route::middleware('rolemanager:customer')->group(function () {
     Route::get('home/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
     
     // Memproses checkout
-    Route::post('home/product', [OrderController::class, 'checkout'])->name('checkout.process');
+    Route::post('/order', [OrderController::class, 'checkout'])->name('checkout.process');
 });
 
 require __DIR__.'/auth.php';
