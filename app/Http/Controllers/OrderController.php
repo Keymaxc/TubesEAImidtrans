@@ -53,10 +53,10 @@ class OrderController extends Controller
         ];
 
         // Dapatkan Snap Token Midtrans
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
+        $snapToken = Snap::getSnapToken($params);
 
         // Tampilkan halaman pembayaran
-        return view('home.checkout', compact('snapToken', 'order'));
+        return view('home.checkout', compact('snapToken', 'order','products'));
     }
 
     

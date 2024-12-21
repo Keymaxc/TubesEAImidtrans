@@ -27,6 +27,7 @@ Route::get('/admin/dashboard', function () {
     return view('admin/index');
 })->middleware(['auth', 'verified', 'rolemanager:admin'])->name('admin');
 
+
 // Halaman dashboard vendor
 Route::get('/vendor/dashboard', function () {
     return view('vendor');
@@ -65,7 +66,7 @@ Route::middleware('rolemanager:customer')->group(function () {
     Route::get('home/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
     
     // Memproses checkout
-    Route::post('/order', [OrderController::class, 'checkout'])->name('checkout.process');
+    Route::post('home/checkout', [OrderController::class, 'checkout'])->name('checkout.process');
 });
 
 require __DIR__.'/auth.php';
