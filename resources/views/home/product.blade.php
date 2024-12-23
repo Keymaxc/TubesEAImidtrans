@@ -3,31 +3,7 @@
 </head>
 <section class="shop_section layout_padding">
     <div class="container">
-        <!-- Pesan Notifikasi -->
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
 
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
-
-        @if (session('info'))
-            <div class="alert alert-info">
-                {{ session('info') }}
-            </div>
-        @endif
-        <!-- End Pesan Notifikasi -->
-
-        <div class="heading_container heading_center">
-            <h2>
-                Latest Products
-            </h2>
-        </div>
         <div class="row">
             @foreach ( $product as $products )
                 <div class="col-sm-6 col-md-4 col-lg-3">
@@ -49,26 +25,7 @@
                             </div>
                         </a>
                         <div style="padding:15px;">
-                            <form action="{{ route('checkout.process')  }}" method="POST">
-                                @csrf
-                                <div class="mb-3">
-                                    <label for="qty" class="form-label">Quantity</label>
-                                    <input type="number" name="qty" class="form-control" id="qty" placeholder="Total">
-                                  </div>
-                                  <div class="mb-3">
-                                    <label for="name" class="form-label">User Name</label>
-                                    <input type="text" name="name" class="form-control" id="name" placeholder="name">
-                                  </div>
-                                  <div class="mb-3">
-                                    <label for="phone" class="form-label">Phone Number</label>
-                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Input Phone Number">
-                                  </div>
-                                  <div class="mb-3">
-                                    <label for="address" class="form-label">Address</label>
-                                    <textarea  name="address" class="form-control"  id="address" rows="3"></textarea>
-                                  </div>
-                                <button type="submit" class="btn btn-primary" id = "pay-button">Checkout</button>
-                            </form>
+                            <a href="{{ route('checkout.show') }}" class="btn btn-primary">Checkout</a>
                         </div>
                     </div>
                 </div>

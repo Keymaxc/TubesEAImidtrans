@@ -11,7 +11,7 @@ use Midtrans\config;
 
 class OrderController extends Controller
 {
-    public function checkoutform (Order $order){
+    public function showCheckout (Order $order){
         return view('home.checkout' ,compact ('order'));
     }
     public function checkout(Request $request)
@@ -56,7 +56,7 @@ class OrderController extends Controller
         $snapToken = Snap::getSnapToken($params);
 
         // Tampilkan halaman pembayaran
-        return view('home.checkout', compact('snapToken', 'order','products'));
+        return view('home.midtransSnap', compact('snapToken', 'order','products'));
     }
 
     
