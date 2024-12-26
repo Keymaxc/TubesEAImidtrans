@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
 });
 
-// Rute untuk halaman admin dan upload produk
+// Rute untuk halaman admin dan manajemen produk
 Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () {
     // Halaman untuk menambahkan produk
     Route::get('admin/addProduct', [AdminController::class, 'add_Product'])
@@ -59,7 +59,24 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
     
     // Proses upload produk
     Route::post('upload_product', [AdminController::class, 'upload_product']);
+
+    // Halaman daftar produk
+    Route::get('admin/viewProduct', [AdminController::class, 'index'])
+        ->name('admin.viewProduct');
+
+    // Halaman edit produk
+    Route::get('admin/editProduct/{id}', [AdminController::class, 'edit'])
+        ->name('admin.editProduct');
+
+    // Proses update produk
+    Route::put('admin/updateProduct/{id}', [AdminController::class, 'update'])
+        ->name('admin.updateProduct');
+
+    // Proses delete produk
+    Route::delete('admin/deleteProduct/{id}', [AdminController::class, 'destroy'])
+        ->name('admin.deleteProduct');
 });
+
 
 Route::middleware('rolemanager:customer')->group(function () {
     // Menampilkan halaman checkout

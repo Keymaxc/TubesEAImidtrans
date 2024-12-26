@@ -18,13 +18,11 @@ class OrderController extends Controller
     {
         $request->request->add(['total_price'=> $request->qty * 12000,'status'=>'Unpaid']);
 
-
-
         // Ambil data produk berdasarkan product_id
-        // $product = Product::findOrFail($request->product_id);
+        //$product = Product::findOrFail($request->product_id);
         $products = Product::all();
         // // Hitung total harga
-        // $totalHarga = $product->price * $request->qty;
+        //$totalHarga = $product->price * $request->qty;
 
         // Simpan data pesanan ke database
         

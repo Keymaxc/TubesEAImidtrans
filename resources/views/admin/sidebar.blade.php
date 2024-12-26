@@ -12,7 +12,8 @@
       <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
       <ul class="list-unstyled">
               <li class="active"><a href="{{ url('admin/dashboard') }}"> <i class="icon-home"></i>Home </a></li>
-              <li class="active"><a href="{{ url('admin/addProduct') }}"> <i class="icon-home"></i>Product </a></li>
+              <li class="active"><a href="{{ route('admin.addProduct') }}"> <i class="icon-home"></i>Product </a></li>
+              <li class="active"><a href="{{ route('admin.viewProduct') }}"> <i class="icon-home"></i>View Product </a></li>
     
               {{-- <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-windows active"></i>Product </a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
