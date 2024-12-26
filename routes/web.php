@@ -86,4 +86,6 @@ Route::middleware('rolemanager:customer')->group(function () {
     Route::post('home/midtransSnap', [OrderController::class, 'checkout'])->name('checkout.process');
 });
 
+//Route::post('/callback', [OrderController::class, 'callback']);
+
 require __DIR__.'/auth.php';

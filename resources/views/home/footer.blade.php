@@ -12,7 +12,8 @@
           <div class="row">
               <div class="col-md-6 col-lg-3">
                   <h6>ABOUT US</h6>
-                  <p>Lorem ipsum dolor sit amet...</p>
+                  <p>We are committed to providing the best selection at competitive prices, backed by responsive customer service and prompt delivery. With a simple and easy-to-use interface, we want to ensure that your every transaction is smooth and enjoyable.
+                </p>
               </div>
               <div class="col-md-6 col-lg-3">
                   <div class="info_form">
@@ -24,15 +25,15 @@
                   </div>
               </div>
               <div class="col-md-6 col-lg-3">
-                  <h6>NEED HELP</h6>
-                  <p>Lorem ipsum dolor sit amet...</p>
+                  <h6>Support</h6>
+                  <p>Provides complete electronic needs</p>
               </div>
               <div class="col-md-6 col-lg-3">
                   <h6>CONTACT US</h6>
                   <div class="info_link-box">
-                      <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i><span> Gb road 123 london Uk </span></a>
-                      <a href=""><i class="fa fa-phone" aria-hidden="true"></i><span>+01 12345678901</span></a>
-                      <a href=""><i class="fa fa-envelope" aria-hidden="true"></i><span> demo@gmail.com</span></a>
+                      <a href=""><i class="fa fa-map-marker" aria-hidden="true"></i><span>Jalan DI Panjaitan No 128 Purwokerto</span></a>
+                      <a href=""><i class="fa fa-phone" aria-hidden="true"></i><span>+62 88456787458</span></a>
+                      <a href=""><i class="fa fa-envelope" aria-hidden="true"></i><span>MJ@gmail.com</span></a>
                   </div>
               </div>
           </div>
@@ -40,7 +41,7 @@
   </div>
   <footer class="footer_section">
       <div class="container">
-          <p>&copy; <span id="displayYear"></span> All Rights Reserved By <a href="https://html.design/">Web Tech Knowledge</a></p>
+          <p>&copy; <span id="displayYear"></span> All Rights Reserved By <a href="https://html.design/">MJ 2024</a></p>
       </div>
   </footer>
 </section>
