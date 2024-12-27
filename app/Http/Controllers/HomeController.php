@@ -24,12 +24,15 @@ class HomeController extends Controller
         $userid = $user->id;
 
         $count = Cart::where('user_id',$userid)->count();
-        return view('home.index',compact('product','count'));
+        return view('customer.home',compact('product','count'));
         
     }
 
 
-
+    public function checkout(){
+        $product = Product::first();
+        return view('customer.checkout', compact('product'));
+    }
 
 
 }

@@ -13,9 +13,9 @@ Route::get('/', function () {
 });
 
 // Halaman utama untuk user yang sudah login dengan role customer
-Route::get('home', [HomeController::class, 'home'])
-    ->middleware(['auth', 'verified', 'rolemanager:customer'])
-    ->name('dashboard');
+// Route::get('home', [HomeController::class, 'home'])
+//     ->middleware(['auth', 'verified', 'rolemanager:customer'])
+//     ->name('dashboard');
 
 
 // Rute untuk menambahkan item ke keranjang
@@ -82,12 +82,14 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
 
 
 Route::middleware('rolemanager:customer')->group(function () {
-    // Menampilkan halaman checkout
-    Route::get('home/checkout', [OrderController::class, 'showCheckout'])->name('checkout.show');
-    
+    Route::get('/', [HomeController::class, 'home'])->name('dashboard');
     // Memproses checkout
-    Route::post('home/midtransSnap', [OrderController::class, 'checkout'])->name('checkout.process');
+    Route::post('customer/midtranSnap', [OrderController::class, 'checkout'])->name('checkout.process');
+
+    Route::get('/checkout', [HomeController::class, 'checkout'])->name('checkout'); // Menggunakan parameter ID produk
 });
+
+
 
 //Route::post('/callback', [OrderController::class, 'callback']);
 

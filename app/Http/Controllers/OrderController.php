@@ -19,7 +19,7 @@ class OrderController extends Controller
     }
     public function checkout(Request $request)
     {
-        $request->request->add(['total_price'=> $request->qty * 12000,'status'=>'Unpaid']);
+        $request->request->add(['total_price'=> $request->qty * 825000,'status'=>'Unpaid']);
 
         // Ambil data produk berdasarkan product_id
         //$product = Product::findOrFail($request->product_id);
@@ -57,7 +57,7 @@ class OrderController extends Controller
         $snapToken = Snap::getSnapToken($params);
 
         // Tampilkan halaman pembayaran
-        return view('home.midtransSnap', compact('snapToken', 'order','products'));
+        return view('customer.midtranSnap', compact('snapToken', 'order','products'));
     }
 
     public function callback(Request $request){
