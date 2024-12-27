@@ -12,7 +12,7 @@
                     <p><strong>Phone:</strong> {{ $order->phone }}</p>
                     <p><strong>Address:</strong> {{ $order->address }}</p>
                     <p><strong>Quantity:</strong> {{ $order->qty }}</p>
-                    <p><strong>Total Price:</strong> ${{ $order->qty * 10 /* Replace with actual price logic */ }}</p>
+                    <p><strong>Total Price:</strong> Rp {{ $order->qty * 12000 /* Replace with actual price logic */ }}</p>
                     <a id="pay-button" class="btn btn-success">Proceed to Payment</a>
                 </div>
             </div>

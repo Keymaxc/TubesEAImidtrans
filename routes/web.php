@@ -17,10 +17,11 @@ Route::get('home', [HomeController::class, 'home'])
     ->middleware(['auth', 'verified', 'rolemanager:customer'])
     ->name('dashboard');
 
+
 // Rute untuk menambahkan item ke keranjang
-Route::get('add_cart/{id}', [HomeController::class, 'add_cart'])
-    ->middleware(['auth', 'verified', 'rolemanager:customer'])
-    ->name('add_cart');
+// Route::get('add_cart/{id}', [HomeController::class, 'add_cart'])
+//     ->middleware(['auth', 'verified', 'rolemanager:customer'])
+//     ->name('add_cart');
 
 // Halaman dashboard admin
 Route::get('/admin/dashboard', function () {
@@ -39,17 +40,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Halaman Keranjang
-    Route::get('cart', [HomeController::class, 'cart'])->name('cart');
+    // // Halaman Keranjang
+    // Route::get('cart', [HomeController::class, 'cart'])->name('cart');
     
-    // Hapus item dari keranjang
-    Route::delete('cart/{id}', [HomeController::class, 'removeFromCart'])->name('cart.remove');
+    // // Hapus item dari keranjang
+    // Route::delete('cart/{id}', [HomeController::class, 'removeFromCart'])->name('cart.remove');
 });
 
 // Rute untuk halaman checkout
-Route::middleware(['auth'])->group(function () {
-    Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
-});
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('checkout', [HomeController::class, 'checkout'])->name('checkout');
+// });
 
 // Rute untuk halaman admin dan manajemen produk
 Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () {
@@ -75,6 +76,8 @@ Route::middleware(['auth', 'verified', 'rolemanager:admin'])->group(function () 
     // Proses delete produk
     Route::delete('admin/deleteProduct/{id}', [AdminController::class, 'destroy'])
         ->name('admin.deleteProduct');
+    //history
+    Route::get('admin/history', [AdminController::class, 'index2'])->name('admin.orders');
 });
 
 

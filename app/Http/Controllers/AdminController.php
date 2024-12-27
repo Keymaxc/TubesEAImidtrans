@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -81,5 +82,14 @@ class AdminController extends Controller
         }
         $product->delete();
         return redirect()->route('admin.viewProduct')->with('success', 'Product deleted successfully.');
+    }
+
+    public function index2()
+    {
+        // Ambil data pesanan dari database
+        $orders = Order::all(); // Ganti dengan query yang sesuai jika ada kondisi khusus
+
+        // Return view dengan data pesanan
+        return view('admin.history', compact('orders'));
     }
 }
