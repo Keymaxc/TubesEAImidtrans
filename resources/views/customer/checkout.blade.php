@@ -10,7 +10,7 @@
   <!-- 
     - primary meta tags
   -->
-  <title>Shoppie - Man summer collection</title>
+  <title>Komsteer Skate</title>
   <meta name="title" content="Shoppie - Man summer collection">
   <meta name="description" content="This is an eCommerce html template made by codewithsadee">
 
