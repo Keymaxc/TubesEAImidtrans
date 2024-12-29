@@ -104,7 +104,7 @@
     <div class="invoice-details">
       <div class="order-summary">
         <p><strong>Order ID:</strong> {{ $order->id }}</p>
-        <p><strong>Name:</strong> {{ V ->name }}</p>
+        <p><strong>Name:</strong> {{ $order->name }}</p>
         <p><strong>Phone:</strong> {{ $order->phone }}</p>
         <p><strong>Address:</strong> {{ $order->address }}</p>
         <p><strong>Quantity:</strong> {{ $order->qty }}</p>
@@ -126,7 +126,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script type="text/javascript"
 src="https://app.sandbox.midtrans.com/snap/snap.js"
-data-client-key="{{ config('midtrans.clientKey') }}"></script>
+data-client-key="{{ config('midtras.clientKey') }}"></script>
 
 <script type="text/javascript">
   // For example trigger on button clicked, or any time you need
