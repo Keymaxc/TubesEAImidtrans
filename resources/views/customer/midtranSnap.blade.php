@@ -116,7 +116,7 @@
         <p><strong>Total Price:</strong> Rp {{ $order->qty * 825000 /* Replace with actual price logic */ }}</p>
     </div>
 
-    <!-- Invoice Footer -->
+    <!-- button bayar -->
     <div class="invoice-footer">
       <a id="pay-button" class="btn">Bayar</a>
     </div>
@@ -126,7 +126,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script type="text/javascript"
 src="https://app.sandbox.midtrans.com/snap/snap.js"
-data-client-key="{{ config('midtras.clientKey') }}"></script>
+data-client-key="{{ config('midtrans.clientKey') }}"></script>
 
 <script type="text/javascript">
   // For example trigger on button clicked, or any time you need
